@@ -36,7 +36,17 @@ print("Intercept:",model.intercept_)
 print("Mean squared error:%.2f"% mean_squared_error(Y_test,Y_pred))
 print("Coefficients of determination (R^2):%.2f" % r2_score(Y_test,Y_pred))
 print(df.head())
-# Intercept=model.intercept_
-# sq_feet=float(input("enter sq feet"))
-# Y=Intercept+280.188*(sq_feet)
-# print(Y)
+Intercept=model.intercept_
+sq_feet=float(input("enter sq feet"))
+Y=Intercept+280.188*(sq_feet)
+print(Y)
+
+import matplotlib.pyplot as plt
+#scatter plot 
+print(Y_test)
+print(Y_pred)
+plt.scatter(x=Y_test,y=Y_pred)
+plt.title("Y_test v Y_pred")
+plt.xlabel("Y_test")
+plt.ylabel("Y_predicted")
+plt.show()
