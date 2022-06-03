@@ -1,6 +1,6 @@
 import pandas as pd 
 
-df=pd.read_csv(r"data.csv")
+df=pd.read_csv(r"single.csv")
 print(df)
 
 #Assigning X and Y 
@@ -27,3 +27,16 @@ model=linear_model.LinearRegression()
 # df = df.replace(r'^\s*$', np.nan, regex=True)
 #building the training model
 model.fit(X_train,Y_train)
+#applying trained model to make prediction (on test set)
+Y_pred = model.predict(X_test)
+
+#print model performance
+print('Coefficients:',model.coef_)
+print("Intercept:",model.intercept_)
+print("Mean squared error:%.2f"% mean_squared_error(Y_test,Y_pred))
+print("Coefficients of determination (R^2):%.2f" % r2_score(Y_test,Y_pred))
+print(df.head())
+# Intercept=model.intercept_
+# sq_feet=float(input("enter sq feet"))
+# Y=Intercept+280.188*(sq_feet)
+# print(Y)
